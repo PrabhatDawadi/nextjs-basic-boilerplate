@@ -1,0 +1,40 @@
+@mixin vendorPrefix($name, $value) {
+    @each $vendor in ("-webkit-", "-moz-", "-ms-", "-o-", "") {
+        #{$vendor}#{$name}: #{$value};
+    }
+}
+
+@mixin calc($property, $expression) {
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -o-calc(#{$expression});
+    #{$property}: -ms-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+@mixin opacity0() {
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: alpha(opacity=0);
+    -khtml-opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    opacity: 0;
+}
+
+@mixin opacity($val1, $val2) {
+    -webkit-opacity: #{$val1};
+    -moz-opacity: #{$val1};
+    filter: alpha(opacity=#{$val2});
+    -khtml-opacity: #{$val1};
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$val2})";
+    opacity: #{$val1};
+}
+
+@mixin opacity1() {
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    filter: alpha(opacity=100);
+    -khtml-opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+}
